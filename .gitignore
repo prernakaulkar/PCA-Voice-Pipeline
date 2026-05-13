@@ -21,3 +21,4 @@ data/
 # Temp files
 *.tmp
 *.log
+*.wav
