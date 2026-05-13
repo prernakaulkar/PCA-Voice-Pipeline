@@ -1,0 +1,51 @@
+# docker-compose.yml
+# PCA Voice Pipeline — Mental Health Voice Prediction System
+#
+# Services:
+#   api_voice_extract  → port 5800  (OpenSMILE feature extraction)
+#   api_pca_pipeline   → port 5900  (Articulation filter + PCA)
+#
+# Run:
+#   docker-compose up --build
+# Stop:
+#   docker-compose down
+
+version: "3.9"
+
+services:
+
+  api_voice_extract:
+    build:
+      context: ./api_voice_extract
+      dockerfile: Dockerfile
+    container_name: voice_extract
+    ports:
+      - "5800:5800"
+    env_file:
+      - ./api_voice_extract/.env
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5800/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  api_pca_pipeline:
+    build:
+      context: ./api_pca_pipeline
+      dockerfile: Dockerfile
+    container_name: pca_pipeline
+    ports:
+      - "5900:5900"
+    env_file:
+      - ./api_pca_pipeline/.env
+    volumes:
+      - ./models:/app/models:ro
+    depends_on:
+      - api_voice_extract
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5900/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
