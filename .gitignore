@@ -1,0 +1,23 @@
+# Environment files
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Model files (too large)
+models/
+
+# Output CSV files (too large)
+output/
+
+# Audio data (too large)
+data/
+
+# Plots
+*.png
+
+# Temp files
+*.tmp
+*.log

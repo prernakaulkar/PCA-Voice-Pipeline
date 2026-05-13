@@ -1,0 +1,5 @@
+opensmile
+fastapi
+uvicorn
+python-dotenv
+requests

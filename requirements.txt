@@ -1,0 +1,14 @@
+opensmile
+librosa
+soundfile
+sounddevice
+scikit-learn
+imbalanced-learn
+numpy
+pandas
+joblib
+matplotlib
+tqdm
+fastapi
+uvicorn
+python-dotenv

@@ -1,0 +1,19 @@
+{
+  "features": {
+    "F0final_sma_amean": 187.432,
+    "F0final_sma_stddev": 42.187,
+    "F0final_sma_range": 120.54,
+    "jitterLocal_sma_amean": 0.00312,
+    "jitterLocal_sma_stddev": 0.00087,
+    "shimmerLocal_sma_amean": 0.04521,
+    "shimmerLocal_sma_stddev": 0.01234,
+    "logHNR_sma_amean": 12.843,
+    "logHNR_sma_stddev": 3.214,
+    "mfcc_sma[1]_amean": -243.512,
+    "mfcc_sma[2]_amean": 87.341,
+    "mfcc_sma[3]_amean": -12.654,
+    "pcm_RMSenergy_sma_amean": 0.03241,
+    "pcm_zcr_sma_amean": 0.08512,
+    "NOTE": "This is a sample with 14 features shown. Actual payload must contain all 6373 OpenSMILE ComParE 2016 features returned by the Voice Feature Extraction API."
+  }
+}
