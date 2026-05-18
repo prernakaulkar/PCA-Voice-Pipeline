@@ -7,7 +7,7 @@ __pycache__/
 *.pyo
 
 # Model files (too large)
-models/
+
 
 # Output CSV files (too large)
 output/
