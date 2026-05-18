@@ -32,15 +32,15 @@ services:
 
   api_pca_pipeline:
     build:
-      context: ./api_pca_pipeline
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: api_pca_pipeline/Dockerfile
     container_name: pca_pipeline
     ports:
       - "5900:5900"
     env_file:
       - ./api_pca_pipeline/.env
     volumes:
-      - ./models:/models:ro
+      - ./models:/app/models:ro
     depends_on:
       - api_voice_extract
     restart: unless-stopped
