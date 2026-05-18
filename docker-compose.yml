@@ -39,8 +39,6 @@ services:
       - "5900:5900"
     env_file:
       - ./api_pca_pipeline/.env
-    volumes:
-      - ./models:/app/models:ro
     depends_on:
       - api_voice_extract
     restart: unless-stopped
