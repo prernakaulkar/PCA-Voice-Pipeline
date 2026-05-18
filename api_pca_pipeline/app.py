@@ -27,7 +27,7 @@ from pydantic import BaseModel
 
 load_dotenv()
 API_KEY   = os.getenv("PCA_PROCESS_KEY")
-MODELS_DIR = Path(r"D:\PCA_Voicepipeline\models")
+MODELS_DIR = Path(__file__).parent.parent / "models"
 
 # Load all saved pipeline models at startup
 articulation_cols   = joblib.load(MODELS_DIR / "articulation_cols.pkl")
