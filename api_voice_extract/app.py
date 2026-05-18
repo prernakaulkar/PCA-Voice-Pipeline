@@ -5,7 +5,7 @@ Accepts a .wav audio file and returns 6373 OpenSMILE
 ComParE 2016 acoustic features as JSON.
 
 Run:
-    uvicorn app:app --host 0.0.0.0 --port 8013 --reload
+    uvicorn app:app --host 0.0.0.0 --port 5800 --reload
 
 Endpoint:
     POST /extract

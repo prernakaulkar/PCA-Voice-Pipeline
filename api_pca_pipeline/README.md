@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 **3. Start the server:**
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 8014 --reload
+uvicorn app:app --host 0.0.0.0 --port 5900 --reload
 ```
 
 **4. Run the test script:**

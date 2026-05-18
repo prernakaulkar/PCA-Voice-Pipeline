@@ -9,7 +9,7 @@ and returns 24 PCA components after applying:
   4. PCA (95% variance)
 
 Run:
-    uvicorn app:app --host 0.0.0.0 --port 8014 --reload
+    uvicorn app:app --host 0.0.0.0 --port 5900 --reload
 
 Endpoint:
     POST /process
