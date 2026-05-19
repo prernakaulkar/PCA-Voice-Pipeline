@@ -22,3 +22,5 @@ data/
 *.tmp
 *.log
 *.wav
+!test_samples/
+!test_samples/*.wav
