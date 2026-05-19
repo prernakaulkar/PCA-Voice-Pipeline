@@ -156,3 +156,78 @@ Suicidal
 |----------|-----|-------------|
 | `VOICE_EXTRACT_KEY` | API 1 | Authentication key for feature extraction |
 | `PCA_PROCESS_KEY` | API 2 | Authentication key for PCA pipeline |
+
+## Testing the APIs
+
+### Sample Audio Files
+Test audio files are available in the `test_samples/` folder.
+Use any `.wav` file from there to test both APIs.
+
+---
+
+### Step 1 — Start both APIs
+```bash
+docker-compose up --build -d
+```
+
+### Step 2 — Test API 1 (Feature Extraction)
+```python
+import requests
+
+url = "http://YOUR_VPS_IP:5800/extract"
+headers = {"x-api-key": "your_voice_extract_key"}
+
+with open("test_samples/P008_2025-10-01_AIIMSN_800.wav", "rb") as f:
+    response = requests.post(
+        url,
+        files={"file": ("sample.wav", f, "audio/wav")},
+        headers=headers
+    )
+
+print(response.json())
+```
+
+### Step 3 — Test API 2 (PCA Pipeline)
+```python
+import requests
+
+# Pass features from API 1 response into API 2
+features = response.json()["features"]
+
+url = "http://YOUR_VPS_IP:5900/process"
+headers = {"x-api-key": "your_pca_process_key"}
+
+response2 = requests.post(
+    url,
+    json={"features": features},
+    headers=headers
+)
+
+print(response2.json())
+```
+
+### Expected Output — API 1
+```json
+{
+  "status": "success",
+  "filename": "sample.wav",
+  "feature_count": 6373,
+  "features": { "F0final_sma_amean": 187.4, "..." : "..." }
+}
+```
+
+### Expected Output — API 2
+```json
+{
+  "status": "success",
+  "input_features": 6373,
+  "selected_features": 120,
+  "pca_components": 24,
+  "variance_kept": 95.01,
+  "components": {
+    "PC1": 2.413241,
+    "PC2": -1.072341,
+    "...": "24 components total"
+  }
+}
+```
