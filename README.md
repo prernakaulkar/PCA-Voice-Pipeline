@@ -1,4 +1,4 @@
-# PCA Voice Pipeline — Mental Health Voice Prediction System
+# Mindspace — Voice-Based Mental Health Detection System
 
 A voice-based mental health prediction pipeline that extracts acoustic features from audio and processes them through an articulation filter and PCA for mental health condition analysis.
 
