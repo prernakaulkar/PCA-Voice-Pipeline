@@ -23,7 +23,7 @@ VARIANCE_THRESHOLD = 0.01
 # ── Feature Engineering (step3b) ────────────────────────────
 CORRELATION_THRESHOLD = 0.95   # remove features correlated above this
 ANOVA_TOP_K           = 200    # keep top 200 by ANOVA F-score
-RF_TOP_N              = 120    # keep top 120 by RF importance
+RF_TOP_N              = 120   # keep top 120 by RF importance
 
 # ── SMOTE ───────────────────────────────────────────────────
 SMOTE_TARGET      = 1667   # per condition → 1667 × 6 = 10002 total

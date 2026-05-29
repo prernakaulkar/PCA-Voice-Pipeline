@@ -38,7 +38,7 @@ def run():
     print(f"  Loading: {in_path}")
     df = pd.read_csv(in_path)
 
-    feature_cols = [c for c in df.columns if c != "label"]
+    feature_cols = [c for c in df.columns if c not in ["label", "filename"]]
     X            = df[feature_cols].values
     y            = df["label"].values
 
